@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.User;
 import com.example.demo.security.JwtUserFactory;
-import com.example.demo.service.UserService;
+import com.example.demo.service.IUserService;
 
 @Service
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
-	private UserService userService;
+	private IUserService userService;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

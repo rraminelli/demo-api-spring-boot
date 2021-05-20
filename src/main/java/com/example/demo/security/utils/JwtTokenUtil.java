@@ -14,7 +14,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @Component
 public class JwtTokenUtil {
-
+	
+	public static final String AUTH_HEADER = "Authorization";
+	public static final String BEARER_PREFIX = "Bearer ";
 	static final String CLAIM_KEY_USERNAME = "sub";
 	static final String CLAIM_KEY_ROLE = "role";
 	static final String CLAIM_KEY_AUDIENCE = "audience";

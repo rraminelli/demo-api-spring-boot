@@ -19,9 +19,6 @@ import com.example.demo.security.utils.JwtTokenUtil;
 
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
-	private static final String AUTH_HEADER = "Authorization";
-	private static final String BEARER_PREFIX = "Bearer ";
-
 	@Autowired
     private UserDetailsService userDetailsService;
 	
@@ -30,8 +27,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 	@Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-        String token = request.getHeader(AUTH_HEADER);
-        if (token != null && token.startsWith(BEARER_PREFIX)) {
+        String token = request.getHeader(JwtTokenUtil.AUTH_HEADER);
+        if (token != null && token.startsWith(JwtTokenUtil.BEARER_PREFIX)) {
         	token = token.substring(7);
         }
         String username = jwtTokenUtil.getUsernameFromToken(token);

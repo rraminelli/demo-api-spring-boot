@@ -18,7 +18,7 @@ import com.example.demo.dto.UserDto;
 import com.example.demo.helper.Response;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.security.utils.PasswordUtils;
-import com.example.demo.service.UserService;
+import com.example.demo.service.IUserService;
 
 @RestController
 @RequestMapping("/api/user")
@@ -26,7 +26,7 @@ import com.example.demo.service.UserService;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private IUserService userService;
 	@Autowired
 	private UserMapper userMapper;
 	

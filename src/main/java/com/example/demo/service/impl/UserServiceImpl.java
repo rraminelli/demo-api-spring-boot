@@ -9,14 +9,14 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.User;
-import com.example.demo.repository.UserRepository;
-import com.example.demo.service.UserService;
+import com.example.demo.repository.IUserRepository;
+import com.example.demo.service.IUserService;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private IUserRepository userRepository;
 	
 	@Override
 	@Cacheable("userByEmail")

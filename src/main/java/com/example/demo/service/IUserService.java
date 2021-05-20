@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.example.demo.entity.User;
 
-public interface UserService {
+public interface IUserService {
 
 	Optional<User> findByEmail(String email);
 	

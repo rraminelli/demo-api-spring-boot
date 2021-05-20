@@ -31,9 +31,6 @@ import com.example.demo.security.utils.JwtTokenUtil;
 @CrossOrigin(origins = "*")
 public class AuthenticationController {
 
-	private static final String TOKEN_HEADER = "Authorization";
-	private static final String BEARER_PREFIX = "Bearer ";
-
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
@@ -68,9 +65,9 @@ public class AuthenticationController {
 	@PostMapping(value = "/refresh")
 	public ResponseEntity<Response<TokenDto>> gerarRefreshTokenJwt(HttpServletRequest request) {
 		Response<TokenDto> response = new Response<TokenDto>();
-		Optional<String> token = Optional.ofNullable(request.getHeader(TOKEN_HEADER));
+		Optional<String> token = Optional.ofNullable(request.getHeader(JwtTokenUtil.AUTH_HEADER));
 		
-		if (token.isPresent() && token.get().startsWith(BEARER_PREFIX)) {
+		if (token.isPresent() && token.get().startsWith(JwtTokenUtil.BEARER_PREFIX)) {
 			token = Optional.of(token.get().substring(7));
         }
 		
